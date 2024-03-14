@@ -1,11 +1,13 @@
 package middleware
 
 import (
-    "encoding/json"
-    "net/http"
-    "strconv"
+	"encoding/json"
+	"net/http"
+	"strconv"
 
-    repo "github.com/Tom-Jank/trade-game/repository"
+	repo "github.com/Tom-Jank/trade-game/repository"
+	"github.com/Tom-Jank/trade-game/views"
+	"github.com/a-h/templ"
 )
 
 func HandleGreet(w http.ResponseWriter, r *http.Request) {
@@ -21,9 +23,10 @@ func HandleGreet(w http.ResponseWriter, r *http.Request) {
         w.Write([]byte("User with such ID doesn't exist"))
         return
     }
-    jsonResponder(w, u)
+    templ.Handler(views.Hello(u.Name)).ServeHTTP(w, r)
 }
 
+// function to respond with simpl json in case I dont need to redner with templ
 func jsonResponder(w http.ResponseWriter, data any) {
     w.Header().Set("Content-Type", "application/json")
     w.WriteHeader(http.StatusOK)
