@@ -23,7 +23,12 @@ func HandleGreet(w http.ResponseWriter, r *http.Request) {
         w.Write([]byte("User with such ID doesn't exist"))
         return
     }
-    templ.Handler(views.Hello(u.Name)).ServeHTTP(w, r)
+    jsonResponder(w, u)
+    //templ.Handler(views.MainPage(u.Name)).ServeHTTP(w, r)
+}
+
+func HandleEntry(w http.ResponseWriter, r *http.Request) {
+    templ.Handler(views.Layout()).ServeHTTP(w, r)
 }
 
 // function to respond with simpl json in case I dont need to redner with templ

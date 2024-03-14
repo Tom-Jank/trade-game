@@ -9,6 +9,7 @@ import (
 
 func RouterHello() http.Handler {
     r := chi.NewRouter()
+    r.Get("/", middleware.HandleEntry)
     r.Get("/{id}", middleware.HandleGreet)
     return r
 }
