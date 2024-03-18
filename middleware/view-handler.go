@@ -7,6 +7,13 @@ import (
 	"github.com/a-h/templ"
 )
 
+type ViewHandler struct {
+}
+
+func NewViewHandler() *ViewHandler {
+    return &ViewHandler{}
+}
+
 func HandleGreeting(w http.ResponseWriter, r *http.Request) {
     templ.Handler(views.Layout()).ServeHTTP(w, r)
 }

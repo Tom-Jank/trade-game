@@ -9,12 +9,7 @@ import (
 	"gorm.io/gorm"
 )
 
-var (
-    DBCon *gorm.DB
-)
-
-func Setup() {
-    var err error
+func Setup() *gorm.DB {
     dsn := fmt.Sprintf(
         "host=%s user=%s password=%s dbname=%s port=%s sslmode=%s",
         os.Getenv("DB_HOST"),
@@ -23,8 +18,10 @@ func Setup() {
         os.Getenv("DB_NAME"),
         os.Getenv("DB_PORT"),
         os.Getenv("DB_SSL"))
-    DBCon, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+    db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
     if err != nil {
         log.Fatal("Error connecting to database", err)
     }
+
+    return db
 }
