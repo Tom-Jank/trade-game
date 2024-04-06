@@ -24,6 +24,10 @@ func injectDependencies(db *gorm.DB, r *chi.Mux) {
     userRepository := repository.NewUserRepositoryImpl(db)
     userHandler := middleware.NewUserHandler(userRepository)
     r.Mount("/api/user", routes.UserRoutes(userHandler))
+
+    cointossRepository := repository.NewCointossRepositoryImpl()
+    cointossHandler := middleware.NewCointossHandler(cointossRepository)
+    r.Mount("/api/toss", routes.CointossRoutes(cointossHandler))
     
     viewHandler := middleware.NewViewHandler()
     r.Mount("/", routes.ViewRoutes(viewHandler))

@@ -135,7 +135,7 @@ func navbar() templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<nav class=\"bg-gray-800 p-4\"><div class=\"max-w-7xl mx-auto flex justify-between items-center\"><div><a href=\"#\" class=\"flex items-center text-white text-xl font-bold\"><svg class=\"h-8 w-8 text-white mr-2\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 19l9 2-9-18-9 18 9-2zm0 0v-8\"></path></svg> MyLogo</a></div><div class=\"flex space-x-4\"><a href=\"/coinflip\" class=\"text-white hover:text-gray-300\">Coinflip</a> <a href=\"#\" class=\"text-white hover:text-gray-300\">About</a></div></div></nav>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<nav class=\"bg-gray-800 p-4\"><div class=\"max-w-7xl mx-auto flex justify-between items-center\"><div><a href=\"#\" class=\"flex items-center text-white text-xl font-bold\"><svg class=\"h-8 w-8 text-white mr-2\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 19l9 2-9-18-9 18 9-2zm0 0v-8\"></path></svg> MyLogo</a></div><div class=\"flex space-x-4\"><a href=\"#\" class=\"text-white hover:text-gray-300\">Coinflip</a> <a href=\"#\" class=\"text-white hover:text-gray-300\">About</a></div></div></nav>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -203,7 +203,7 @@ func coin() templ.Component {
 			templ_7745c5c3_Var7 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"flex justify-center items-center bg-white-400 border-2 border-gray-800 w-32 h-32 rounded-full\"><span class=\"text-4xl text-gray-800 font-bold\">$</span></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"coin\" class=\"flex justify-center items-center bg-white-400 border-2 border-gray-800 w-32 h-32 rounded-full\"><span class=\"text-4xl text-gray-800 font-bold\">$</span></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -227,7 +227,7 @@ func buttonHead() templ.Component {
 			templ_7745c5c3_Var8 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<button class=\"bg-blue-800 p-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-32 h-12\">HEAD</button>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<button hx-get=\"/api/toss/HEAD\" hx-target=\"#coin\" hx-swap=\"innerHTML\" class=\"bg-blue-800 p-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-32 h-12\">HEAD</button>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -251,7 +251,7 @@ func buttonTail() templ.Component {
 			templ_7745c5c3_Var9 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<button class=\"bg-red-800 p-4 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-32 h-12\">TAIL</button>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<button hx-get=\"/api/toss/TAIL\" hx-target=\"#coin\" hx-swap=\"innerHTML\" class=\"bg-red-800 p-4 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-32 h-12\">TAIL</button>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

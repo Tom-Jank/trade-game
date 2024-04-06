@@ -51,7 +51,7 @@ templ navbar() {
                 </a>
             </div>
             <div class="flex space-x-4">
-                <a href="/coinflip" class="text-white hover:text-gray-300">Coinflip</a>
+                <a href="#" class="text-white hover:text-gray-300">Coinflip</a>
                 <a href="#" class="text-white hover:text-gray-300">About</a>
             </div>
         </div>
@@ -69,19 +69,21 @@ templ coinflipContent() {
 }
 
 templ coin() {
-    <div class="flex justify-center items-center bg-white-400 border-2 border-gray-800 w-32 h-32 rounded-full">
+    <div id="coin" class="flex justify-center items-center bg-white-400 border-2 border-gray-800 w-32 h-32 rounded-full">
         <span class="text-4xl text-gray-800 font-bold">$</span>
     </div>
 }
 
 templ buttonHead() {
-    <button class="bg-blue-800 p-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-32 h-12">
+    <button hx-get="/api/toss/HEAD" hx-target="#coin" hx-swap="innerHTML"
+            class="bg-blue-800 p-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-32 h-12">
         HEAD
     </button>
 }
 
 templ buttonTail() {
-    <button class="bg-red-800 p-4 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-32 h-12">
+    <button hx-get="/api/toss/TAIL" hx-target="#coin" hx-swap="innerHTML"
+            class="bg-red-800 p-4 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-32 h-12">
         TAIL
     </button>
 }
