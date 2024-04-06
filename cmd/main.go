@@ -28,3 +28,4 @@ func injectDependencies(db *gorm.DB, r *chi.Mux) {
     viewHandler := middleware.NewViewHandler()
     r.Mount("/", routes.ViewRoutes(viewHandler))
 }
+

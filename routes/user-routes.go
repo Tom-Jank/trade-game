@@ -12,3 +12,4 @@ func UserRoutes(handler *middleware.UserHandler) http.Handler {
     r.Get("/{id}", handler.HandleGetById)
     return r
 }
+
